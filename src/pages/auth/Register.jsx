@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField'
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import phoneImage from "../../assets/images/phone image.png";
+import phoneImage from "../../assets/images/phone Image.png";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from '../../validation/RegisterSchema';
 import { Link } from '@mui/material';
