@@ -27,16 +27,16 @@ export default function Register() {
   }
 
   return (
-    <Box component={'section'} py={5} display={'flex'} justifyContent={'space-around'} alignItems={'center'}>
-      <Box columnGap={3} component={'img'} src={phoneImage} alt={'phoneImage'} sx={{width:'480px', height:'500px',objectFit: 'contain'}}  ></Box>
-      <Box columnGap={6} display={'flex'} flexDirection={'column'} justifyContent={'flex-start'} width='30%'>
+    <Box component={'section'} display={'flex'} justifyContent={'space-around'} alignItems={'center'}>
+      <Box columnGap={3} component={'img'} src={phoneImage} alt={'phoneImage'} sx={{width: {sm:'300px',md:'480px'}, height: 'auto', objectFit: 'contain',display:{xs:'none',sm:'block'} }}  ></Box>
+      <Box columnGap={6} display={'flex'} flexDirection={'column'} justifyContent={'flex-start'} sx={{width:{ xs: '90%', sm: '45%', md: '30%'}}}>
         <Box display={'flex'} flexDirection={'column'} gap='15px' >
-          <Typography component={'h4'} variant='h4'>Create an account</Typography>
+          <Typography component={'h4'} variant='h4' fontWeight={500}>Create an account</Typography>
           <Typography fontSize='13px'>Enter your details below</Typography>
         </Box>
 
         <Box component={'form'} onSubmit={handleSubmit(registerForm)} display={'flex'} flexDirection={'column'} gap={3} py={2}>
-          <TextField {...register('userName', { require: true })} label="User Name" variant="standard"
+          <TextField {...register('userName')} label="User Name" variant="standard"
             error={errors.userName}
             helperText={errors.userName?.message} />
           <TextField {...register('fullName')} label="Full Name" variant="standard"

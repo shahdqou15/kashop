@@ -16,8 +16,8 @@ import { Link as RouterLink } from 'react-router-dom'
 export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" >
-        <Toolbar sx={{ display: 'flex', alignItems: 'center', backgroundColor:'white', justifyContent: 'space-between' }}>
+      <AppBar position="fixed">
+        <Toolbar sx={{ display: 'flex', alignItems: 'center', backgroundColor:'white', justifyContent: 'space-between'}}>
           <Typography variant="h6" component="div" color="black">
             KASHOP
           </Typography>
@@ -28,7 +28,8 @@ export default function Navbar() {
             <Link component={RouterLink} to={'/register'} color="black" underline='none'>Sign Up</Link>
           </Box>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '24px', alignItems: 'center' }}>
-            <TextField id="filled-basic" label="What are you looking for?" variant="filled" />
+            {/* <TextField id="filled-basic" label="What are you looking for?" variant="filled" /> */}
+            <Link component={RouterLink} className='btn' to={'/login'} color="black" underline='none'>Login</Link>
             <IconButton size="large">
               <FavoriteBorderIcon />
             </IconButton>
