@@ -5,6 +5,7 @@ import Cart from "./pages/cart/Cart";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 
+
 const router = createBrowserRouter([
     {
         path: '/',

@@ -14,12 +14,13 @@ import { Link } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom'
 
 export default function Navbar() {
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
         <Toolbar sx={{ display: 'flex', alignItems: 'center', backgroundColor:'white', justifyContent: 'space-between'}}>
           <Typography variant="h6" component="div" color="black">
-            KASHOP
+            KASHOP 
           </Typography>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '48px', alignItems: 'center' }}>
             <Link component={RouterLink} to={'/'} color="black" underline='none'>Home</Link>
