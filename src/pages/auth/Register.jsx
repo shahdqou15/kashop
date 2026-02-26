@@ -61,9 +61,7 @@ export default function Register() {
             helperText={errors.phoneNumber?.message} />
 
             
-            <Button type='submit' variant="contained" sx={{ backgroundColor: '#DB4444' }} disabled={isSubmitting}>{isSubmitting? <CircularProgress /> : 'Create Account'}</Button> :
-            
-          
+            <Button type='submit' variant="contained" sx={{ backgroundColor: '#DB4444' }} disabled={isSubmitting}>{isSubmitting? <CircularProgress /> : 'Create Account'}</Button>           
         </Box>
 
         <Box display={'flex'} alignItems={'center'} gap={1} pt={2}>
