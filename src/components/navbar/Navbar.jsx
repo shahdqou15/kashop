@@ -1,19 +1,27 @@
-import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField'
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom'
+import { Navigate, Link as RouterLink, useNavigate } from 'react-router-dom'
+import Login from '../../pages/auth/Login';
+import useAuthStore from '../../store/useAuthStore';
+
 
 export default function Navbar() {
+ const {token} = useAuthStore();
+ const {logout} = useAuthStore();
+ const navigate = useNavigate();
+
+ const handleLogout = ()=>{
+  logout();
+  navigate('/login');
+ }
   
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -26,21 +34,26 @@ export default function Navbar() {
             <Link component={RouterLink} to={'/'} color="black" underline='none'>Home</Link>
             <Link component={RouterLink} to={'/'} color="black" underline='none'>Shop</Link>
             <Link component={RouterLink} to={'/'} color="black" underline='none'>About</Link>
-            <Link component={RouterLink} to={'/register'} color="black" underline='none'>Sign Up</Link>
+            <Link component={RouterLink} to={'/'} color="black" underline='none'>Contact</Link>
           </Box>
+          {token?(
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '24px', alignItems: 'center', justifyContent:'center' }}>
+            <Link component={RouterLink} onClick={handleLogout} color="black" underline='none'>Logout</Link>
+            <IconButton size="large">
+              <FavoriteBorderIcon sx={{fill:'black'}}/>
+            </IconButton>
+            <IconButton size="large">
+              <Link component={RouterLink} to={'/cart'} display={'flex'} ><AddShoppingCartIcon sx={{fill:'black'}}/></Link>
+            </IconButton>
+            <IconButton size="large">
+              <AccountCircleIcon sx={{fill:'black'}}/>
+            </IconButton>
+          </Box>):
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '24px', alignItems: 'center' }}>
-            {/* <TextField id="filled-basic" label="What are you looking for?" variant="filled" /> */}
-            <Link component={RouterLink} className='btn' to={'/login'} color="black" underline='none'>Login</Link>
-            <IconButton size="large">
-              <FavoriteBorderIcon />
-            </IconButton>
-            <IconButton size="large">
-              <AddShoppingCartIcon />
-            </IconButton>
-            <IconButton size="large">
-              <AccountCircleIcon />
-            </IconButton>
+            <Link component={RouterLink} to={'/register'} color="black" underline='none'>Sign up</Link>
+            <Link component={RouterLink} to={'/login'} color="black" underline='none'>Login</Link>
           </Box>
+          }
           <IconButton 
             size="large"
             edge="start"

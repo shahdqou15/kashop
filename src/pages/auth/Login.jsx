@@ -6,21 +6,25 @@ import TextField from '@mui/material/TextField'
 import phoneImage from "../../assets/images/phone Image.png";
 import { CircularProgress, Link } from '@mui/material';
 import { useForm } from 'react-hook-form';
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink, useNavigate } from 'react-router-dom'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema } from '../../validation/LoginSchema';
 import axios from 'axios';
 import { useState } from 'react';
+import useAuthStore from '../../store/useAuthStore';
 
 export default function Login() {
+  const { setToken } = useAuthStore();
+  const navigate = useNavigate();
   const [serverErrors, setServerErrors] = useState([]);
 
   const { register: login, handleSubmit, formState: { errors, isSubmitting } } = useForm({ resolver: yupResolver(LoginSchema), mode: 'onBlur' });
   const loginForm = async (valuse) => {
     try {
       const response = await axios.post(`https://knowledgeshop.runasp.net/api/auth/Account/Login`, valuse);
-      if(response.status===200){
-        localStorage.setItem("accessToken",response.data.accessToken)
+      if (response.status === 200) {
+        setToken(response.data.accessToken);
+        navigate('/');
       }
       console.log("response:", response);
     } catch (error) {
