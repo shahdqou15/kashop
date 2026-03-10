@@ -110,7 +110,7 @@ export default function Cart() {
                             <TableCell>${data.cartTotal}</TableCell>
                         </TableRow>
                     </Table>
-                    <Link component={RouterLink} to={'/'} underline='none'><Button variant="outlined" color='primary'>Procees to checkout</Button></Link>
+                    <Link component={RouterLink} to={'/checkout'} underline='none'><Button variant="outlined" color='primary'>Procees to checkout</Button></Link>
                 </Box>
 
             </Box>
