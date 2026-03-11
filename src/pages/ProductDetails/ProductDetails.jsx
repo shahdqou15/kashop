@@ -6,12 +6,13 @@ import useAddToCart from '../../hooks/useAddToCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { useTranslation } from 'react-i18next';
 
 export default function ProductDetails() {
   const { id } = useParams();
   const { data, isLoading, isError, error } = useProductDetails(id);
   const { mutate, isPending } = useAddToCart();
-  
+  const {t} = useTranslation();
   const [count, setCount] = useState(1);
 
 
@@ -43,7 +44,7 @@ const product = data.response;
             <Button disabled={isPending} variant="contained" color="primary" onClick={() => mutate({
               ProductId: product.id,
               Count: count
-            })}>Add to Cart</Button>
+            })}>{t('Add to Cart')}</Button>
             <Button variant="outlined" color='primary'><FavoriteBorderIcon /></Button>
           </Box>
         </Box>

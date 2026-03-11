@@ -7,12 +7,14 @@ import useRemoveFromCart from '../../hooks/useRemoveFromCart';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import useupdateQuantity from '../../hooks/useupdateQuantity';
+import { useTranslation } from 'react-i18next';
 
 export default function Cart() {
 
     const { data, isLoading, isError, error } = useCart();
     const { mutate, isPending } = useRemoveFromCart();
     const {mutate:updateItem , isPending:Upadating} = useupdateQuantity();
+    const {t} = useTranslation();
 
     const handleUpadateQty = (productId,action)=>{
       const item =   data.items.find( (i)=>{
@@ -38,19 +40,19 @@ export default function Cart() {
                     <TableHead>
                         <TableRow>
                             <TableCell>
-                                Product
+                                {t('Product')}
                             </TableCell>
                             <TableCell>
-                                Price
+                               {t('Price')} 
                             </TableCell>
                             <TableCell>
-                                Quantity
+                                {t('Quantity')}
                             </TableCell>
                             <TableCell>
-                                Subtotal
+                                {t('Subtotal')}
                             </TableCell>
                             <TableCell>
-                                Action
+                                {t('Action')}
                             </TableCell>
                         </TableRow>
                     </TableHead>
@@ -87,30 +89,30 @@ export default function Cart() {
                 </Table>
             </TableContainer>
             <Box p={2}>
-                <Link component={RouterLink} to={'/'} underline='none'><Button variant="outlined" color='primary'>Return to shop</Button></Link>
+                <Link component={RouterLink} to={'/'} underline='none'><Button variant="outlined" color='primary'>{t('Return to shop')}</Button></Link>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }} p={2}>
                 <Box display={'flex'} gap={2}>
                     <TextField id="outlined-basic" label="Coupon Code" variant="outlined" />
-                    <Button variant="outlined" color='primary'>Apply Coupon</Button>
+                    <Button variant="outlined" color='primary'>{t('Apply Coupon')}</Button>
                 </Box>
                 <Box border={1} p={3} width={'40%'} display={'flex'} flexDirection={'column'} gap={3}>
-                    <Typography>Cart Total</Typography>
+                    <Typography>{t('Cart Total')}</Typography>
                     <Table>
                         <TableRow>
-                            <TableCell>Subtotal:</TableCell>
+                            <TableCell>{t('Subtotal')}:</TableCell>
                             <TableCell>${data.cartTotal}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>Shipping:</TableCell>
+                            <TableCell>{t('Shipping')}:</TableCell>
                             <TableCell>Free</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>total</TableCell>
+                            <TableCell>{t('total')}</TableCell>
                             <TableCell>${data.cartTotal}</TableCell>
                         </TableRow>
                     </Table>
-                    <Link component={RouterLink} to={'/checkout'} underline='none'><Button variant="outlined" color='primary'>Procees to checkout</Button></Link>
+                    <Link component={RouterLink} to={'/checkout'} underline='none'><Button variant="outlined" color='primary'>{t('Procees to checkout')}</Button></Link>
                 </Box>
 
             </Box>

@@ -7,12 +7,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Badge, Link } from '@mui/material';
+import { Badge, Link, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Navigate, Link as RouterLink, useNavigate } from 'react-router-dom'
 import Login from '../../pages/auth/Login';
 import useAuthStore from '../../store/useAuthStore';
 import useCart from '../../hooks/useCart';
-
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18next';
 
 export default function Navbar() {
   const { token } = useAuthStore();
@@ -20,8 +21,11 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { data } = useCart();
   const cartCount = data?.items?.length
-  
-
+  const { t } = useTranslation();
+  const changeLanguage = () => {
+    const newLng = i18n.language == "ar"?"en":"ar"
+    i18n.changeLanguage(newLng);
+  }
 
   const handleLogout = () => {
     logout();
@@ -36,30 +40,29 @@ export default function Navbar() {
             KASHOP
           </Typography>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '48px', alignItems: 'center' }}>
-            <Link component={RouterLink} to={'/'} color="black" underline='none'>Home</Link>
-            <Link component={RouterLink} to={'/'} color="black" underline='none'>Shop</Link>
-            <Link component={RouterLink} to={'/'} color="black" underline='none'>About</Link>
-            <Link component={RouterLink} to={'/'} color="black" underline='none'>Contact</Link>
+            <Link component={RouterLink} to={'/'} color="black" underline='none'>{t('Home')}</Link>
+            <Link component={RouterLink} to={'/'} color="black" underline='none'>{t('Shop')}</Link>
+            <Link component={RouterLink} to={'/'} color="black" underline='none'>{t('About')}</Link>
+            <Link component={RouterLink} to={'/'} color="black" underline='none'>{t('Contact')}</Link>
+
           </Box>
           {token ? (
             <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '24px', alignItems: 'center', justifyContent: 'center' }}>
-              <Link component={RouterLink} onClick={handleLogout} color="black" underline='none'>Logout</Link>
-              <IconButton size="large">
-                <FavoriteBorderIcon sx={{ fill: 'black' }} />
-              </IconButton>
+              <Link component={RouterLink} onClick={handleLogout} color="black" underline='none'>{t('Logout')}</Link>
+                <ToggleButton onClick={changeLanguage()}>{i18n.language === "ar"?"EN":"AR"}</ToggleButton>
               <IconButton size="large">
                 <Badge badgeContent={cartCount} color="primary">
                   <Link component={RouterLink} to={'/cart'} display={'flex'} ><AddShoppingCartIcon sx={{ fill: 'black' }} /></Link>
                 </Badge>
-                
+
               </IconButton>
               <IconButton size="large">
                 <AccountCircleIcon sx={{ fill: 'black' }} />
               </IconButton>
             </Box>) :
             <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '24px', alignItems: 'center' }}>
-              <Link component={RouterLink} to={'/register'} color="black" underline='none'>Sign up</Link>
-              <Link component={RouterLink} to={'/login'} color="black" underline='none'>Login</Link>
+              <Link component={RouterLink} to={'/register'} color="black" underline='none'>{t('Sign up')}</Link>
+              <Link component={RouterLink} to={'/login'} color="black" underline='none'>{t('Login')}</Link>
             </Box>
           }
           <IconButton
