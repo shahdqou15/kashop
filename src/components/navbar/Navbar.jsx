@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Badge, Link, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { Badge, Button, Link, ToggleButton } from '@mui/material';
 import { Navigate, Link as RouterLink, useNavigate } from 'react-router-dom'
 import Login from '../../pages/auth/Login';
 import useAuthStore from '../../store/useAuthStore';
@@ -49,7 +49,7 @@ export default function Navbar() {
           {token ? (
             <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '24px', alignItems: 'center', justifyContent: 'center' }}>
               <Link component={RouterLink} onClick={handleLogout} color="black" underline='none'>{t('Logout')}</Link>
-                <ToggleButton onClick={changeLanguage()}>{i18n.language === "ar"?"EN":"AR"}</ToggleButton>
+                <Button onClick={changeLanguage}>{i18n.language === "ar"?"EN":"AR"}</Button>
               <IconButton size="large">
                 <Badge badgeContent={cartCount} color="primary">
                   <Link component={RouterLink} to={'/cart'} display={'flex'} ><AddShoppingCartIcon sx={{ fill: 'black' }} /></Link>
