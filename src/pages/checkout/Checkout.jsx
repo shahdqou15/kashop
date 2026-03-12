@@ -37,7 +37,7 @@ export default function Checkout() {
 
                     <TableBody>
                         {data.items.map(item => (
-                            <TableRow>
+                            <TableRow key={item.productId}>
                                 <TableCell>
                                     {item.productName}
                                 </TableCell>

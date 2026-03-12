@@ -58,7 +58,7 @@ export default function Cart() {
 
                     <TableBody>
                         {data.items.map(item => (
-                            <TableRow>
+                            <TableRow key={item.productId}>
                                 <TableCell>
                                     {item.productName}
                                 </TableCell>
