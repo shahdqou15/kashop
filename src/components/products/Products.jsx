@@ -16,7 +16,7 @@ export default function Products() {
             <Typography variant='h4' mb={2}>{t('Products')}</Typography>
             <Grid container spacing={4}>
                 {data.response.data.map((product) =>
-                    <Grid item size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+                    <Grid item size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={product.id}>
                         <Link to={`Products/${product.id}`}>
                             <Card sx={{ maxWidth: 345, padding: 2, height: '400px' }}>
                                 <CardMedia

@@ -7,6 +7,6 @@ export default function Categories() {
     console.log(data)
 
   return (
-    <div>{data.data.map((categorie)=><Box>{categorie.name}</Box>)}</div>
+    <div>{data.data.map((categorie)=><Box key={categorie.id}>{categorie.name}</Box>)}</div>
   )
 }
