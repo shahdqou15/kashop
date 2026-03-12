@@ -10,6 +10,8 @@ import Checkout from "./pages/checkout/Checkout";
 import Profile from "./pages/profile/Profile";
 import ProfileInfo from "./pages/profile/ProfileInfo";
 import ProfileOrders from "./pages/profile/ProfileOrders";
+import ForgetPass from "./pages/Pass/ForgetPass";
+import Verify from "./pages/Pass/verify";
 
 
 const router = createBrowserRouter([
@@ -60,7 +62,15 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register />
-            }]
+            },
+        {
+                path: 'forgetPass',
+                element: <ForgetPass />
+            },
+        {
+                path: 'verify',
+                element: <Verify/>
+            },]
     }
 
 ]);

@@ -9,7 +9,6 @@ import { useForm } from 'react-hook-form';
 import { Link as RouterLink, useNavigate } from 'react-router-dom'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema } from '../../validation/LoginSchema';
-import axios from 'axios';
 import { useState } from 'react';
 import useAuthStore from '../../store/useAuthStore';
 import axiosInstance from '../../api/axiosInstance';
@@ -57,7 +56,7 @@ export default function Login() {
             helperText={errors.password?.message} />
           <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} >
             <Button type='submit' variant="contained" sx={{ backgroundColor: '#DB4444' }}>{isSubmitting ? <CircularProgress /> : 'Log In'}</Button>
-            <Link component={RouterLink} color='#DB4444'>Forget Password?</Link>
+            <Link component={RouterLink} to={'/forgetPass'} color='#DB4444'>Forget Password?</Link>
           </Box>
 
         </Box>
