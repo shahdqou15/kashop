@@ -14,6 +14,8 @@ import useAuthStore from '../../store/useAuthStore';
 import useCart from '../../hooks/useCart';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../i18next';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import useThemeStore from '../../store/useThemeStore';
 
 export default function Navbar() {
   const { token } = useAuthStore();
@@ -26,7 +28,8 @@ export default function Navbar() {
     const newLng = i18n.language == "ar"?"en":"ar"
     i18n.changeLanguage(newLng);
   }
-
+  const mode = useThemeStore( (state)=>state.mode);
+  const toggleTheme = useThemeStore( (state)=>state.toggleTheme);
   const handleLogout = () => {
     logout();
     navigate('/login');
@@ -35,42 +38,42 @@ export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
-        <Toolbar sx={{ display: 'flex', alignItems: 'center', backgroundColor: 'white', justifyContent: 'space-between' }}>
-          <Typography variant="h6" component="div" color="black">
+        <Toolbar sx={{ display: 'flex', alignItems: 'center',background:mode === 'light'?'white':'',  justifyContent: 'space-between' }}>
+          <Typography variant="h6" component="div" sx={{color:mode === 'light'?'black':'white'}}>
             KASHOP
           </Typography>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '48px', alignItems: 'center' }}>
-            <Link component={RouterLink} to={'/'} color="black" underline='none'>{t('Home')}</Link>
-            <Link component={RouterLink} to={'/'} color="black" underline='none'>{t('Shop')}</Link>
-            <Link component={RouterLink} to={'/'} color="black" underline='none'>{t('About')}</Link>
-            <Link component={RouterLink} to={'/'} color="black" underline='none'>{t('Contact')}</Link>
+            <Link component={RouterLink} to={'/'} sx={{color:mode === 'light'?'black':'white'}} underline='none'>{t('Home')}</Link>
+            <Link component={RouterLink} to={'/'} sx={{color:mode === 'light'?'black':'white'}} underline='none'>{t('Shop')}</Link>
+            <Link component={RouterLink} to={'/'} sx={{color:mode === 'light'?'black':'white'}} underline='none'>{t('About')}</Link>
+            <Link component={RouterLink} to={'/'} sx={{color:mode === 'light'?'black':'white'}} underline='none'>{t('Contact')}</Link>
 
           </Box>
           {token ? (
             <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '24px', alignItems: 'center', justifyContent: 'center' }}>
-              <Link component={RouterLink} onClick={handleLogout} color="black" underline='none'>{t('Logout')}</Link>
+              <Link component={RouterLink} onClick={handleLogout} sx={{color:mode === 'light'?'black':'white'}} underline='none'>{t('Logout')}</Link>
                 <Button onClick={changeLanguage}>{i18n.language === "ar"?"EN":"AR"}</Button>
+                <IconButton onClick={toggleTheme}><DarkModeIcon sx={{fill:mode === 'light'?'black':'#ffea00'}}/></IconButton>
               <IconButton size="large">
                 <Badge badgeContent={cartCount} color="primary">
-                  <Link component={RouterLink} to={'/cart'} display={'flex'} ><AddShoppingCartIcon sx={{ fill: 'black' }} /></Link>
+                  <Link component={RouterLink} to={'/cart'} display={'flex'} ><AddShoppingCartIcon sx={{ fill:mode === 'light'?'black':'white' }} /></Link>
                 </Badge>
 
               </IconButton>
               <IconButton size="large">
-                <AccountCircleIcon sx={{ fill: 'black' }} />
+                <AccountCircleIcon sx={{ fill:mode === 'light'?'black':'white' }} />
               </IconButton>
             </Box>) :
             <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '24px', alignItems: 'center' }}>
-              <Link component={RouterLink} to={'/register'} color="black" underline='none'>{t('Sign up')}</Link>
-              <Link component={RouterLink} to={'/login'} color="black" underline='none'>{t('Login')}</Link>
+              <Link component={RouterLink} to={'/register'} sx={{color:mode === 'light'?'black':'white'}} underline='none'>{t('Sign up')}</Link>
+              <Link component={RouterLink} to={'/login'} sx={{color:mode === 'light'?'black':'white'}} underline='none'>{t('Login')}</Link>
             </Box>
           }
           <IconButton
             size="large"
             edge="start"
-            color="black"
             aria-label="menu"
-            sx={{ mr: 2, display: { xs: 'flex', md: 'none' } }}
+            sx={{ mr: 2, display: { xs: 'flex', md: 'none' },color:mode === 'light'?'black':'white' }}
           >
             <MenuIcon />
           </IconButton>

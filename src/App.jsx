@@ -7,14 +7,18 @@ import {
 } from '@tanstack/react-query'
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import getTheme from './theme';
+import useThemeStore from './store/useThemeStore';
+
 
 
 function App() {
 
-
   const queryClient = new QueryClient();
   const {i18n} = useTranslation();
-
+  const mode = useThemeStore( (state)=>state.mode);
+ 
   useEffect(()=>{
     const dir = i18n.language === "ar"?"rtl":"ltr";
     document.documentElement.dir = dir
@@ -25,7 +29,11 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <ThemeProvider theme={getTheme(mode)}>
+          <CssBaseline />
+          <RouterProvider router={router} />
+          </ThemeProvider>
+        
       </QueryClientProvider>
 
 
