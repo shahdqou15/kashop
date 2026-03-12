@@ -12,6 +12,7 @@ import { LoginSchema } from '../../validation/LoginSchema';
 import axios from 'axios';
 import { useState } from 'react';
 import useAuthStore from '../../store/useAuthStore';
+import axiosInstance from '../../api/axiosInstance';
 
 export default function Login() {
   const { setToken } = useAuthStore();
@@ -21,7 +22,7 @@ export default function Login() {
   const { register: login, handleSubmit, formState: { errors, isSubmitting } } = useForm({ resolver: yupResolver(LoginSchema), mode: 'onBlur' });
   const loginForm = async (valuse) => {
     try {
-      const response = await axios.post(`https://knowledgeshop.runasp.net/api/auth/Account/Login`, valuse);
+      const response = await axiosInstance.post(`/auth/Account/Login`, valuse);
       if (response.status === 200) {
         setToken(response.data.accessToken);
         navigate('/');

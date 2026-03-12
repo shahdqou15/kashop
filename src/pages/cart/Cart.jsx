@@ -8,7 +8,6 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import useupdateQuantity from '../../hooks/useupdateQuantity';
 import { useTranslation } from 'react-i18next';
-
 export default function Cart() {
 
     const { data, isLoading, isError, error } = useCart();
