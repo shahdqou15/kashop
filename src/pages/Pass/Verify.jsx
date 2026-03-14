@@ -10,7 +10,6 @@ export default function Verify() {
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
     
-
     const verifyForm = async (valuse) => {
         try {
             const email = localStorage.getItem("resetEmail")

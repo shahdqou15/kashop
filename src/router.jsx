@@ -11,7 +11,7 @@ import Profile from "./pages/profile/Profile";
 import ProfileInfo from "./pages/profile/ProfileInfo";
 import ProfileOrders from "./pages/profile/ProfileOrders";
 import ForgetPass from "./pages/Pass/ForgetPass";
-import Verify from "./pages/Pass/verify";
+import Verify from "./pages/Pass/Verify";
 
 
 const router = createBrowserRouter([
