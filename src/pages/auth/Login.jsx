@@ -46,7 +46,6 @@ export default function Login() {
             {serverErrors.map((error) => <Typography>Error: {error}</Typography>)}
           </Box>)}
 
-
         <Box component={'form'} onSubmit={handleSubmit(loginForm)} display={'flex'} flexDirection={'column'} gap={3} py={2} >
           <TextField {...login('email')} label="Enter Your Email" variant="standard"
             error={errors.email}

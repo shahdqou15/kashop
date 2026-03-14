@@ -12,6 +12,7 @@ import ProfileInfo from "./pages/profile/ProfileInfo";
 import ProfileOrders from "./pages/profile/ProfileOrders";
 import ForgetPass from "./pages/Pass/ForgetPass";
 import Verify from "./pages/Pass/Verify";
+import ProductsByCategory from "./pages/products/ProductsByCategory";
 
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: 'Products/:id',
                 element: <ProductDetails />
+            },
+            {
+                path: 'ProductsByCategory/:id',
+                element: <ProductsByCategory />
             },
             {
                 path: 'cart',
