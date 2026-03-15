@@ -41,10 +41,11 @@ export default function Login() {
           <Typography component={'h4'} variant='h4' fontWeight={500}>Log in to Exclusive</Typography>
           <Typography fontSize='13px'>Enter your details below</Typography>
         </Box>
+
         {serverErrors?.length > 0 && (
           <Box mt={2} color={'red'}>
-            {serverErrors.map((error) => <Typography>Error: {error}</Typography>)}
-          </Box>)}
+          {serverErrors.map((error) => <Typography>Error: {error}</Typography>)}
+        </Box>)}
 
         <Box component={'form'} onSubmit={handleSubmit(loginForm)} display={'flex'} flexDirection={'column'} gap={3} py={2} >
           <TextField {...login('email')} label="Enter Your Email" variant="standard"

@@ -6,6 +6,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import useCheckout from '../../hooks/useCheckout';
 import { useTranslation } from 'react-i18next';
 
+
 export default function Checkout() {
     const { data, isLoading, isError, error } = useCart();
     const { mutate, isPinding } = useCheckout();
@@ -17,18 +18,18 @@ export default function Checkout() {
         <Box className="cart" p={5}>
             <TableContainer>
                 <Table>
-                    <TableHead>
+                    <TableHead >
                         <TableRow>
-                            <TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>
                                 {t('Product')}
                             </TableCell>
-                            <TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>
                                 {t('Price')}
                             </TableCell>
-                            <TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>
                                 {t('Quantity')}
                             </TableCell>
-                            <TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>
                                 {t('Subtotal')}
                             </TableCell>
 
@@ -56,18 +57,18 @@ export default function Checkout() {
                 </Table>
             </TableContainer>
             <Box p={5} width={'100%'} display={'flex'} flexDirection={'column'} gap={3}>
-                <Typography variant='h5'>{t('Cart Total')}</Typography>
+                <Typography fontWeight={'Bold'} fontSize={'25px'}>{t('Cart Total')}</Typography>
                 <Table>
                     <TableRow>
-                        <TableCell>{t('Subtotal')}:</TableCell>
+                        <TableCell sx={{ fontWeight: 'bold' }}>{t('Subtotal')}:</TableCell>
                         <TableCell>${data.cartTotal}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>{t('Shipping')}:</TableCell>
+                        <TableCell sx={{ fontWeight: 'bold' }}>{t('Shipping')}:</TableCell>
                         <TableCell>Free</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell>{t('total')}</TableCell>
+                        <TableCell sx={{ fontWeight: 'bold' }}>{t('total')}</TableCell>
                         <TableCell>${data.cartTotal}</TableCell>
                     </TableRow>
                 </Table>

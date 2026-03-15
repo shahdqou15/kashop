@@ -35,7 +35,17 @@ i18n
                     "Apply Coupon": "Apply Coupon",
                     "Procees to checkout": "Procees to checkout",
                     "Payment Method":"Payment Method",
-                    "Pay Now":"Pay Now"
+                    "Pay Now":"Pay Now",
+                    "Free Delivery":"Free Delivery",
+                    "Size":"Size",
+                    "Enter your postal code for Delivery Availability":"Enter your postal code for Delivery Availability",
+                    "Return Delivery":"Return Delivery",
+                    "EFree 30 Days Delivery Returns.":"EFree 30 Days Delivery Returns.",
+                    "Reviews":"Reviews",
+                    "Add Reviews":"Add Reviews",
+                    "Add Your Review":"Add Your Review",
+                    "Cancel":"Cancel",
+                    "Add":"Add"
                 }
             },
             ar: {
@@ -50,7 +60,7 @@ i18n
                     "Products": "المنتجات",
                     "Categories": "التصنيفات",
                     "Contact": "تواصل",
-                    "Add To Cart": "اضف الي السلة",
+                    "Add to Cart": "اضف الي السلة",
                     "Product": "المنتج",
                     "Price": "السعر",
                     "Quantity": "الكمية",
@@ -63,7 +73,18 @@ i18n
                     "Apply Coupon": "اضف القسيمة",
                     "Procees to checkout": "المتابعة الى الدفع",
                     "Payment Method":"طريقة الدفع",
-                    "Pay Now":"ادفع الان"
+                    "Pay Now":"ادفع الان",
+                    "Free Delivery":"توصيل مجاني",
+                    "Size":"الحجم",
+                    "Enter your postal code for Delivery Availability":"أدخل الرمز البريدي لتوافر التوصيل",
+                    "Return Delivery":"إرجاع التسليم",
+                    "EFree 30 Days Delivery Returns.":"توصيل وإرجاع مجاني خلال 30 يومًا.",
+                    "Reviews":"المراجعات",
+                    "Add Reviews":"أضف مراجعات",
+                    "Add Your Review":"أضف مرجعك",
+                    "Cancel":"الغاء",
+                    "Add":"أضف"
+                    
                 }
             }
         },

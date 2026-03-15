@@ -1,5 +1,5 @@
 import useCart from '../../hooks/useCart';
-import { Button, CircularProgress, Box, Link, TextField, Typography, IconButton } from '@mui/material';
+import { Button, CircularProgress, Box, Link, TextField, Typography, IconButton, Breadcrumbs } from '@mui/material';
 import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
@@ -12,17 +12,17 @@ export default function Cart() {
 
     const { data, isLoading, isError, error } = useCart();
     const { mutate, isPending } = useRemoveFromCart();
-    const {mutate:updateItem , isPending:Upadating} = useupdateQuantity();
-    const {t} = useTranslation();
+    const { mutate: updateItem, isPending: Upadating } = useupdateQuantity();
+    const { t } = useTranslation();
 
-    const handleUpadateQty = (productId,action)=>{
-      const item =   data.items.find( (i)=>{
+    const handleUpadateQty = (productId, action) => {
+        const item = data.items.find((i) => {
             return i.productId == productId
         })
-        if(action == '-'){
-            updateItem({productId,count:item.count-1})
-        }else{
-          updateItem({productId,count:item.count+1})   
+        if (action == '-') {
+            updateItem({ productId, count: item.count - 1 })
+        } else {
+            updateItem({ productId, count: item.count + 1 })
         }
     }
 
@@ -34,6 +34,12 @@ export default function Cart() {
 
     return (
         <Box className="cart" p={5}>
+            <Breadcrumbs aria-label="breadcrumb" sx={{paddingBottom:'35px'}}>
+                <Link underline="hover" color="inherit" href="/">
+                   {t('Home')}
+                </Link>
+                <Typography sx={{ color: 'text.primary' }}>{t('Cart')}</Typography>
+            </Breadcrumbs>
             <TableContainer>
                 <Table>
                     <TableHead>
@@ -42,7 +48,7 @@ export default function Cart() {
                                 {t('Product')}
                             </TableCell>
                             <TableCell>
-                               {t('Price')} 
+                                {t('Price')}
                             </TableCell>
                             <TableCell>
                                 {t('Quantity')}
@@ -66,10 +72,10 @@ export default function Cart() {
                                     ${item.price}
                                 </TableCell>
                                 <TableCell>
-                                    <Box sx={{display:'flex',alignItems:'center'}}>
-                                        <IconButton onClick={()=>handleUpadateQty(item.productId,'-')} disabled={Upadating}><RemoveIcon /></IconButton>
+                                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                        <IconButton onClick={() => handleUpadateQty(item.productId, '-')} disabled={Upadating}><RemoveIcon /></IconButton>
                                         <Typography>{item.count}</Typography>
-                                        <IconButton onClick={()=>handleUpadateQty(item.productId,'+')} disabled={Upadating}><AddIcon /></IconButton>
+                                        <IconButton onClick={() => handleUpadateQty(item.productId, '+')} disabled={Upadating}><AddIcon /></IconButton>
                                     </Box>
 
                                 </TableCell>
@@ -91,12 +97,12 @@ export default function Cart() {
                 <Link component={RouterLink} to={'/'} underline='none'><Button variant="outlined" color='primary'>{t('Return to shop')}</Button></Link>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }} p={2}>
-                <Box display={'flex'} gap={2}>
+                {/* <Box display={'flex'} gap={2}>
                     <TextField id="outlined-basic" label="Coupon Code" variant="outlined" />
                     <Button variant="outlined" color='primary'>{t('Apply Coupon')}</Button>
-                </Box>
-                <Box border={1} p={3} width={'40%'} display={'flex'} flexDirection={'column'} gap={3}>
-                    <Typography>{t('Cart Total')}</Typography>
+                </Box> */}
+                <Box  p={3} width={'100%'} display={'flex'} flexDirection={'column'} gap={3}>
+                    <Typography fontWeight={'Bold'} fontSize={'25px'}>{t('Cart Total')}</Typography>
                     <Table>
                         <TableRow>
                             <TableCell>{t('Subtotal')}:</TableCell>
@@ -111,7 +117,7 @@ export default function Cart() {
                             <TableCell>${data.cartTotal}</TableCell>
                         </TableRow>
                     </Table>
-                    <Link component={RouterLink} to={'/checkout'} underline='none'><Button variant="outlined" color='primary'>{t('Procees to checkout')}</Button></Link>
+                    <Link component={RouterLink} to={'/checkout'} underline='none'><Button variant="contained" color='primary'>{t('Procees to checkout')}</Button></Link>
                 </Box>
 
             </Box>
