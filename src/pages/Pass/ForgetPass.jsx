@@ -28,7 +28,7 @@ export default function ForgetPass() {
     }
 
     return (
-        <Box component={'form'} onSubmit={()=>handleSubmit(forgetForm)} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '25px', padding: '20px', width: '100%' }}>
+        <Box component={'form'} onSubmit={handleSubmit(forgetForm)} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '25px', padding: '20px', width: '100%' }}>
             <Typography variant='h3' fontWeight={'Bold'}>Forget Password</Typography>
             {serverErrors?.length > 0 && (
                 <Box mt={2} color={'red'}>

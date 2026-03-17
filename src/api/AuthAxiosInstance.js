@@ -16,7 +16,7 @@ AuthAxiosInstance.interceptors.request.use ( (config)=>{
 AuthAxiosInstance.interceptors.response.use ( (response)=>response,async(error)=>{
     const originalRequest = error.config;
     console.log(originalRequest);
-    if(error.response?.status === 401 && !originalRequest._retry){
+    if(error.response?.status === 401 && !originalRequest._retry && token){
         originalRequest._retry = true;
         try{
             const refreshResponse = await axios.post('https://knowledgeshop.runasp.net/api/auth/Account/RefreshToken',{},{

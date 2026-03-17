@@ -27,7 +27,7 @@ export default function Verify() {
     }
 
     return (
-        <Box onSubmit={()=>handleSubmit(verifyForm)} component={'form'} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '25px', padding: '20px', width: '100%' }}>
+        <Box onSubmit={handleSubmit(verifyForm)} component={'form'} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '25px', padding: '20px', width: '100%' }}>
             <Typography variant='h3' fontWeight={'Bold'}>Verify code</Typography>
             <TextField
                 label="Verify code"
