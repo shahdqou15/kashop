@@ -4,7 +4,6 @@ import { Link as RouterLink } from 'react-router-dom'
 
 export default function ProductCard({product}) {
     return (
-        <Grid item size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={product.id}>
             <Link component={RouterLink} to={`/Products/${product.id}`} underline='none'>
                 <Card sx={{ maxWidth: 345, padding: 3, height: '430px'}}>
                     <CardMedia
@@ -24,7 +23,5 @@ export default function ProductCard({product}) {
                     </CardContent>
                 </Card>
             </Link>
-
-        </Grid>
     )
 }

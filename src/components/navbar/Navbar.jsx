@@ -44,7 +44,7 @@ export default function Navbar() {
           </Typography>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '48px', alignItems: 'center' }}>
             <Link component={RouterLink} to={'/'} sx={{color:mode === 'light'?'black':'white'}} underline='none'>{t('Home')}</Link>
-            <Link component={RouterLink} to={'/'} sx={{color:mode === 'light'?'black':'white'}} underline='none'>{t('Shop')}</Link>
+            <Link component={RouterLink} to={'/shop'} sx={{color:mode === 'light'?'black':'white'}} underline='none'>{t('Shop')}</Link>
             <Link component={RouterLink} to={'/'} sx={{color:mode === 'light'?'black':'white'}} underline='none'>{t('About')}</Link>
             <Link component={RouterLink} to={'/'} sx={{color:mode === 'light'?'black':'white'}} underline='none'>{t('Contact')}</Link>
 

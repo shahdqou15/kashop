@@ -20,7 +20,7 @@ export default function Home() {
               <Typography fontSize={'15px'}>iPhone 14 Series</Typography>
             </Box>
             <Typography fontSize={'45px'} fontWeight={500}>Up to 10% <br></br>off Voucher</Typography>
-            <Link component={RouterLink} color='#fff' to={'/'}>Shop Now </Link>
+            <Link component={RouterLink} color='#fff' to={'/shop'}>Shop Now </Link>
             
           </Box>
           <Box component={'img'} src={heroImage}  ></Box>

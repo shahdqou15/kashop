@@ -13,6 +13,7 @@ import ProfileOrders from "./pages/profile/ProfileOrders";
 import ForgetPass from "./pages/Pass/ForgetPass";
 import Verify from "./pages/Pass/Verify";
 import ProductsByCategory from "./pages/products/ProductsByCategory";
+import Shop from "./pages/shop/Shop";
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />
+            },
+            {
+                path:'shop',
+                element: <Shop />
             },
             {
                 path: 'Products/:id',
