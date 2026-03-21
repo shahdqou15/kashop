@@ -45,7 +45,18 @@ i18n
                     "Add Reviews":"Add Reviews",
                     "Add Your Review":"Add Your Review",
                     "Cancel":"Cancel",
-                    "Add":"Add"
+                    "Add":"Add",
+                    "Filters":"Filters",
+                    "MaxPrice":"MaxPrice",
+                    "MinPrice":"MinPrice",
+                    "Sort By":"Sort By",
+                    "Name":"Name",
+                    "Price":"Price",
+                    "Rate":"Rate",
+                    "according to":"according to",
+                    "Ascending":"Ascending",
+                    "Descending":"Descending",
+                    "Apply":"Apply"
                 }
             },
             ar: {
@@ -83,7 +94,18 @@ i18n
                     "Add Reviews":"أضف مراجعات",
                     "Add Your Review":"أضف مرجعك",
                     "Cancel":"الغاء",
-                    "Add":"أضف"
+                    "Add":"أضف",
+                    "Filters":"تصفية",
+                    "MaxPrice":"أعلى سعر",
+                    "MinPrice":"أقل سعر",
+                    "Sort By":"تصنيف حسب",
+                    "Name":"الاسم",
+                    "Price":"السعر",
+                    "Rate":"التقييم",
+                    "according to":"وفقا الى",
+                    "Ascending":"تصاعدي",
+                    "Descending":"تنازلي",
+                    "Apply":"تطبيق"
                     
                 }
             }

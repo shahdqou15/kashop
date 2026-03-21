@@ -39,6 +39,7 @@ export default function ProductDetails() {
     const formJson = Object.fromEntries(formData.entries());
     const email = formJson.email;
     console.log(email);
+    handleClose();
   };
 
   if (isLoading) return <CircularProgress />
@@ -158,7 +159,9 @@ export default function ProductDetails() {
                     fullWidth
                     variant="standard"
                     value={comment}
-                    onChange={(e)=>setComment(e.target.value)}
+                    onChange={(e)=>setComment(e.target.value)
+                    
+                    }
                   />
                 </Box>
               </DialogContent>

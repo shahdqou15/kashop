@@ -5,13 +5,13 @@ import React from 'react'
 import axiosInstance from '../api/axiosInstance';
 import i18n from '../i18next';
 
-export default function useCategories() {
+export default function useCategories(limit) {
     const getCategories = async () => {
-        const response = await axiosInstance.get(`/Categories`);
+        const response = await axiosInstance.get(`/Categories?limit=${limit}`);
         return response.data.response;
     }
     const query = useQuery({
-        queryKey: ['categories',i18n.language],
+        queryKey: ['categories',i18n.language,limit],
         queryFn: getCategories,
         staleTime: 1000 * 60 * 5
     })

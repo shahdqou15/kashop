@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import useThemeStore from '../../store/useThemeStore';
 
 export default function Categories() {
-  const { data, isLoading, isError, error } = useCategories();
+  const { data, isLoading, isError, error } = useCategories(4);
   const navigate = useNavigate();
   const mode = useThemeStore( (state)=>state.mode);
 
@@ -13,10 +13,12 @@ export default function Categories() {
   console.log(data)
 
   return (
-    <Box display={'flex'} flexDirection={'column'} gap={'5px'} textAlign={'center'}>{data.data.map((categorie) =>
-     <Card sx={{padding:'20px',cursor: "pointer" ,color:mode === 'light'?'black':'white'}} underline='none' key={categorie.id} onClick={() => navigate(`/ProductsByCategory/${categorie.id}`)}>{categorie.name}
+    <Box display={'flex'} flexDirection={'column'} gap={'5px'} textAlign={'center'}>{data.data.map((category) =>
+     <Card sx={{padding:'20px',cursor: "pointer" ,color:mode === 'light'?'black':'white'}} underline='none'
+      key={category.id}
+       onClick={() => navigate(`/ProductsByCategory/${category.id}`)}>{category.name}
       </Card> )}
-      <Link>Show More</Link>
+  
 </Box>
   )
 }
