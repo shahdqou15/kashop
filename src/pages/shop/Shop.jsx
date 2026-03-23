@@ -82,18 +82,24 @@ export default function Shop() {
           display: 'flex',
           overflowX: 'auto',
           gap: 2,
-          pb: 2
+          py: 2
         }}>
-        {categories.data.map(category => 
-        <Card sx={{
-          padding: '10px', cursor: "pointer",
-          flexShrink: 0,
-          color: mode === 'light' ? 'black' : 'white'
-        }} underline='none'
-          key={category.id}
-          onClick={() => navigate(`/ProductsByCategory/${category.id}`)}>{category.name}
-        </Card>
-      )}
+        {categories.data.map(category =>
+          <Card sx={{
+            padding: '10px', cursor: "pointer",
+            flexShrink: 0,
+            color: mode === 'light' ? 'black' : 'white', transition: 'all 0.5s',
+            '&:hover': {
+              transform: 'translateY(-8px)',
+              boxShadow: '0 8px 20px rgba(0,0,0,0.3)',
+              backgroundColor: '#DB4444',
+              color: '#fff'
+            }
+          }} underline='none'
+            key={category.id}
+            onClick={() => navigate(`/ProductsByCategory/${category.id}`)}>{category.name}
+          </Card>
+        )}
       </Box>
       <Box sx={{
         display: { xs: 'flex', md: 'none' },
@@ -200,7 +206,7 @@ export default function Shop() {
                   sm={data.response.data.length === 1 ? 12 : 6}
                   md={data.response.data.length === 1 ? 6 : 6}
                   lg={data.response.data.length === 1 ? 6 : 6}
-                   key={product.id}>
+                  key={product.id}>
                   <ProductCard product={product} /></Grid>
               )}
             </Grid>

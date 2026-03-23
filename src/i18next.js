@@ -62,7 +62,23 @@ i18n
                     "View All Products":"View All Products",
                     "Show More":"Show More",
                     "Shop Now":"Shop Now",
-                    "Browse By Category":"Browse By Category"
+                    "Browse By Category":"Browse By Category",
+                    "Enhance Your Music Experience":"Enhance Your Music Experience",
+                    "Buy Now":"Buy Now",
+                    "FREE AND FAST DELIVERY":"FREE AND FAST DELIVERY",
+                    "Free delivery for all orders over $140":"Free delivery for all orders over $140",
+                    "24/7 CUSTOMER SERVICE":"24/7 CUSTOMER SERVICE",
+                    "Friendly 24/7 customer support":"Friendly 24/7 customer support",
+                    "MONEY BACK GUARANTEE":"MONEY BACK GUARANTEE",
+                    "We reurn money within 30 days":"We reurn money within 30 days",
+                    "Subscribe":"Subscribe",
+                    "Contact us through social media":"Contact us through social media",
+                    "Account":"Account",
+                    "My Account":"My Account",
+                    "Quick Link":"Quick Link",
+                    "Privacy Policy":"Privacy Policy",
+                    "Terms Of Use":"Terms Of Use",
+                    "FAQ Up":"FAQ Up"
                 }
             },
             ar: {
@@ -117,7 +133,23 @@ i18n
                     "View All Products":"عرض كل المنتجات",
                     "Show More":"عرض المزيد",
                     "Shop Now":"تسوق الان",
-                    "Browse By Category":"تصفح حسب الفئة"
+                    "Browse By Category":"تصفح حسب الفئة",
+                    "Enhance Your Music Experience":"عزّز تجربتك الموسيقية",
+                    "Buy Now":"اشتري الان",
+                    "FREE AND FAST DELIVERY":"توصيل مجاني وسريع",
+                    "Free delivery for all orders over $140":"توصيل مجاني لجميع الطلبات التي تزيد عن 140$",
+                    "24/7 CUSTOMER SERVICE":"خدمة العملاء على مدار الساعة",
+                    "Friendly 24/7 customer support":"دعم العملاء ودود على مدار الساعة",
+                    "MONEY BACK GUARANTEE":"ضمان استرداد الأموال",
+                    "We reurn money within 30 days":"نقوم برد المال خلال 30 يومًا",
+                    "Subscribe":"اشتراك",
+                     "Contact us through social media":"تواصل معنا عبر مواقع التواصل الاجتماعي",
+                    "Account":"الحساب",
+                    "My Account":"حسابي",
+                    "Quick Link":"رابط سريع",
+                    "Privacy Policy":"سياسة الخصوصية",
+                    "Terms Of Use":"شروط الاستخدام",
+                    "FAQ Up":"الأسئلة الشائعة"
                     
                 }
             }
