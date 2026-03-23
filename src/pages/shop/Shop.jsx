@@ -7,6 +7,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import useCategories from '../../hooks/useCategories';
 import { useNavigate } from 'react-router-dom';
 import useThemeStore from '../../store/useThemeStore';
+import CategoriesCard from '../../components/categories/CategoriesCard';
 
 
 
@@ -83,14 +84,16 @@ export default function Shop() {
           gap: 2,
           pb: 2
         }}>
-        {categories.data.map(category => <Card sx={{
+        {categories.data.map(category => 
+        <Card sx={{
           padding: '10px', cursor: "pointer",
           flexShrink: 0,
           color: mode === 'light' ? 'black' : 'white'
         }} underline='none'
           key={category.id}
           onClick={() => navigate(`/ProductsByCategory/${category.id}`)}>{category.name}
-        </Card>)}
+        </Card>
+      )}
       </Box>
       <Box sx={{
         display: { xs: 'flex', md: 'none' },

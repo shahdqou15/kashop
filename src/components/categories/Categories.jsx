@@ -1,24 +1,22 @@
-import { Box, Card, CircularProgress, Link } from '@mui/material';
+import { Box, CircularProgress } from '@mui/material';
 import useCategories from '../../hooks/useCategories';
-import { useNavigate } from 'react-router-dom';
-import useThemeStore from '../../store/useThemeStore';
+import CategoriesCard from './CategoriesCard';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 
 export default function Categories() {
   const { data, isLoading, isError, error } = useCategories(4);
-  const navigate = useNavigate();
-  const mode = useThemeStore( (state)=>state.mode);
+  const { t } = useTranslation();
 
   if (isLoading) return <CircularProgress />
   if (isError) return <Box color={'red'}>{error.message}</Box>
   console.log(data)
 
   return (
-    <Box display={'flex'} flexDirection={'column'} gap={'5px'} textAlign={'center'}>{data.data.map((category) =>
-     <Card sx={{padding:'20px',cursor: "pointer" ,color:mode === 'light'?'black':'white'}} underline='none'
-      key={category.id}
-       onClick={() => navigate(`/ProductsByCategory/${category.id}`)}>{category.name}
-      </Card> )}
-  
+    <Box display={'flex'} flexDirection={'column'} gap={'20px'} textAlign={'center'}>{data.data.map((category) =>
+    <CategoriesCard category={category}/> )}
+  <Link>{t('Show More')}</Link>
 </Box>
   )
 }

@@ -56,7 +56,13 @@ i18n
                     "according to":"according to",
                     "Ascending":"Ascending",
                     "Descending":"Descending",
-                    "Apply":"Apply"
+                    "Apply":"Apply",
+                    "Today`s":"Todays",
+                    "Flash Sales":"Flash Sales",
+                    "View All Products":"View All Products",
+                    "Show More":"Show More",
+                    "Shop Now":"Shop Now",
+                    "Browse By Category":"Browse By Category"
                 }
             },
             ar: {
@@ -105,7 +111,13 @@ i18n
                     "according to":"وفقا الى",
                     "Ascending":"تصاعدي",
                     "Descending":"تنازلي",
-                    "Apply":"تطبيق"
+                    "Apply":"تطبيق",
+                    "Today`s":"يوميا",
+                    "Flash Sales":"مبيعات سريعة",
+                    "View All Products":"عرض كل المنتجات",
+                    "Show More":"عرض المزيد",
+                    "Shop Now":"تسوق الان",
+                    "Browse By Category":"تصفح حسب الفئة"
                     
                 }
             }
