@@ -78,7 +78,22 @@ i18n
                     "Quick Link":"Quick Link",
                     "Privacy Policy":"Privacy Policy",
                     "Terms Of Use":"Terms Of Use",
-                    "FAQ Up":"FAQ Up"
+                    "FAQ Up":"FAQ Up",
+                    "Welcome":"Welcome",
+                    "Manage My Account":"Manage My Account",
+                    "My Profile":"My Profile",
+                    "My Orders":"My Orders",
+                    "Your Profile Information":"Your Profile Information",
+                    "Your Name":"Your Name",
+                    "Your Email":"Your Email",
+                    "Your phoneNumber":"Your phoneNumber",
+                    "Your City":"Your City",
+                    "Change Your Password":"Change Your Password",
+                    "Your Orders":"Your Orders",
+                    "order id":"order id",
+                    "Order Date":"Order Date",
+                    "Amount Paid":"Amount Paid",
+                    "Payment Status":"Payment Status"
                 }
             },
             ar: {
@@ -149,7 +164,22 @@ i18n
                     "Quick Link":"رابط سريع",
                     "Privacy Policy":"سياسة الخصوصية",
                     "Terms Of Use":"شروط الاستخدام",
-                    "FAQ Up":"الأسئلة الشائعة"
+                    "FAQ Up":"الأسئلة الشائعة",
+                    "Welcome":"اهلا",
+                    "Manage My Account":"إدارة حسابي",
+                    "My Profile":"حسابي",
+                    "My Orders":"طلباتي",
+                    "Your Profile Information":"معلومات ملفك الشخصي",
+                    "Your Name":"اسمك",
+                    "Your Email":"بريدك الالكتروني",
+                    "Your phoneNumber":"رقم هاتفك",
+                    "Your City":"مدينتك",
+                    "Change Your Password":"تغيير كلمة المرور",
+                    "Your Orders":"طلباتي",
+                    "order id":"رقم الطلب",
+                    "Order Date":"تاريخ الطلب",
+                    "Amount Paid":"المبلغ المدفوع",
+                    "Payment Status":"حالة الدفع"
                     
                 }
             }
