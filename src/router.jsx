@@ -14,6 +14,7 @@ import ForgetPass from "./pages/Pass/ForgetPass";
 import Verify from "./pages/Pass/Verify";
 import ProductsByCategory from "./pages/products/ProductsByCategory";
 import Shop from "./pages/shop/Shop";
+import CategoriesPage from "./pages/categories/CategoriesPage";
 
 
 const router = createBrowserRouter([
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
                 element: <ProtectedRouter>
                     <Checkout />
                 </ProtectedRouter>
+            },
+            {
+                path: 'categories',
+                element: <CategoriesPage />
             },
             {
                 path: 'profile',
