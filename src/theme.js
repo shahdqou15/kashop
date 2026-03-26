@@ -10,7 +10,8 @@ const getTheme = (mode) => {
         },
         typography: {
             fontFamily: "Inter"
-        }
+        },
+        
     })
 }
 

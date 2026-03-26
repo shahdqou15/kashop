@@ -93,7 +93,26 @@ i18n
                     "order id":"order id",
                     "Order Date":"Order Date",
                     "Amount Paid":"Amount Paid",
-                    "Payment Status":"Payment Status"
+                    "Payment Status":"Payment Status",
+                    "Founder & Chairman":"Founder & Chairman",
+                    "Managing Director":"Managing Director",
+                    "Product Designer":"Product Designer",
+                    "Sallers active our site":"Sallers active our site",
+                    "Mopnthly Produduct Sale":"Mopnthly Produduct Sale",
+                    "Customer active in our site":"Customer active in our site",
+                    "Anual gross sale in our site":"Anual gross sale in our site",
+                    "Our Story":"Our Story",
+                    "Launced in 2015, Exclusive is South Asia’s premier online shopping makterplace with an active presense in Bangladesh. Supported by wide range of tailored marketing, data and service solutions, Exclusive has 10,500 sallers and 300 brands and serves 3 millioons customers across the region.":"Launced in 2015, Exclusive is South Asia’s premier online shopping makterplace with an active presense in Bangladesh. Supported by wide range of tailored marketing, data and service solutions, Exclusive has 10,500 sallers and 300 brands and serves 3 millioons customers across the region.",
+                    "Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers a diverse assotment in categories ranging  from consumer.":"Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers a diverse assotment in categories ranging  from consumer.",
+                    "Your Massage":"Your Massage",
+                    "Send Massage":"Send Massage",
+                    "Call To Us":"Call To Us",
+                    "We are available 24/7, 7 days a week.":"We are available 24/7, 7 days a week.",
+                    "Phone: +8801611112222":"Phone: +8801611112222",
+                    "Write To US":"Write To US",
+                    "Fill out our form and we will contact you within 24 hours.":"Fill out our form and we will contact you within 24 hours.",
+                    "Emails: customer@exclusive.com":"Emails: customer@exclusive.com",
+                    "Emails: support@exclusive.com":"Emails: support@exclusive.com"
                 }
             },
             ar: {
@@ -179,7 +198,26 @@ i18n
                     "order id":"رقم الطلب",
                     "Order Date":"تاريخ الطلب",
                     "Amount Paid":"المبلغ المدفوع",
-                    "Payment Status":"حالة الدفع"
+                    "Payment Status":"حالة الدفع",
+                    "Founder & Chairman":"المؤسس ورئيس مجلس الإدارة",
+                    "Managing Director":"المدير العام",
+                    "Product Designer":"مصمم منتجات",
+                    "Sallers active our site":"الباعة ينشطون موقعنا",
+                    "Mopnthly Produduct Sale":"مبيعات المنتجات الشهرية",
+                    "Customer active in our site":"العميل نشط في موقعنا",
+                    "Anual gross sale in our site":"إجمالي المبيعات السنوية في موقعنا",
+                    "Our Story":"قصتنا",
+                    "Launced in 2015, Exclusive is South Asia’s premier online shopping makterplace with an active presense in Bangladesh. Supported by wide range of tailored marketing, data and service solutions, Exclusive has 10,500 sallers and 300 brands and serves 3 millioons customers across the region.":"تم إطلاقه في 2015، إكسكلوسيف هو السوق الإلكتروني الرائد في جنوب آسيا للتسوق عبر الإنترنت مع حضور نشط في بنغلاديش. مدعوم بمجموعة واسعة من حلول التسويق والبيانات والخدمات المخصصة، يضم إكسكلوسيف 10,500 بائع و300 علامة تجارية ويخدم 3 ملايين عميل في جميع أنحاء المنطقة.",
+                    "Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers a diverse assotment in categories ranging  from consumer.":"تمتلك إكسكروزيف أكثر من مليون منتج لتقدمه، وتنمو بسرعة كبيرة. تقدم إكسكروزيف مجموعة متنوعة في فئات متنوعة تبدأ من المستهلك.",
+                    "Your Massage":"رسالتك",
+                    "Send Massage":"ارسل رسالة",
+                    "Call To Us":"اتصل بنا",
+                    "We are available 24/7, 7 days a week.":"نحن متاحون على مدار الساعة طوال أيام الأسبوع.",
+                    "Phone: +8801611112222":"الهاتف: +8801611112222",
+                    "Write To US":"اكتب لنا",
+                    "Fill out our form and we will contact you within 24 hours.":"املأ نموذجنا وسنتواصل معك خلال 24 ساعة.",
+                    "Emails: customer@exclusive.com":"البريد الإلكتروني: customer@exclusive.com",
+                    "Emails: support@exclusive.com":"البريد الإلكتروني: support@exclusive.com"
                     
                 }
             }

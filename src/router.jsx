@@ -15,7 +15,8 @@ import Verify from "./pages/Pass/Verify";
 import ProductsByCategory from "./pages/products/ProductsByCategory";
 import Shop from "./pages/shop/Shop";
 import CategoriesPage from "./pages/categories/CategoriesPage";
-
+import About from './pages/about/About'
+import Contact from './pages/contact/Contact'
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,14 @@ const router = createBrowserRouter([
             {
                 path:'shop',
                 element: <Shop />
+            },
+            {
+                path: 'about',
+                element: <About />
+            },
+            {
+                path: 'contact',
+                element: <Contact />
             },
             {
                 path: 'Products/:id',

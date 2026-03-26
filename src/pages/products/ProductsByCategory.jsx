@@ -13,7 +13,7 @@ export default function ProductsByCategory() {
     if (isLoading) return <CircularProgress />
     if (isError) return <Box color={'red'}>{error.message}</Box>
     return (
-        <Box>
+        <Box p={5}>
             <Grid container spacing={4}>
                 {data?.response.map((product) => (
                     <ProductCard product={product}/>
