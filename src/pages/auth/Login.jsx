@@ -12,11 +12,13 @@ import { LoginSchema } from '../../validation/LoginSchema';
 import { useState } from 'react';
 import useAuthStore from '../../store/useAuthStore';
 import axiosInstance from '../../api/axiosInstance';
+import { useTranslation } from 'react-i18next';
 
 export default function Login() {
   const { setToken } = useAuthStore();
   const navigate = useNavigate();
   const [serverErrors, setServerErrors] = useState([]);
+  const { t } = useTranslation();
 
   const { register: login, handleSubmit, formState: { errors, isSubmitting } } = useForm({ resolver: yupResolver(LoginSchema), mode: 'onBlur' });
   const loginForm = async (valuse) => {
@@ -38,8 +40,8 @@ export default function Login() {
       <Box columnGap={3} component={'img'} src={phoneImage} alt={'phoneImage'} sx={{ width: { sm: '300px', md: '480px' }, height: 'auto', objectFit: 'contain', display: { xs: 'none', sm: 'block' } }}></Box>
       <Box columnGap={6} display={'flex'} flexDirection={'column'} justifyContent={'flex-start'} sx={{ width: { xs: '90%', sm: '45%', md: '30%' } }}>
         <Box display={'flex'} flexDirection={'column'} gap='15px'>
-          <Typography component={'h4'} variant='h4' fontWeight={500}>Log in to Exclusive</Typography>
-          <Typography fontSize='13px'>Enter your details below</Typography>
+          <Typography component={'h4'} variant='h4' fontWeight={500}>{t('Log in to KASHOP')}</Typography>
+          <Typography fontSize='13px'>{t('Enter your details below')}</Typography>
         </Box>
 
         {serverErrors?.length > 0 && (
@@ -48,15 +50,15 @@ export default function Login() {
         </Box>)}
 
         <Box component={'form'} onSubmit={handleSubmit(loginForm)} display={'flex'} flexDirection={'column'} gap={3} py={2} >
-          <TextField {...login('email')} label="Enter Your Email" variant="standard"
+          <TextField {...login('email')} label={t('Enter Your Email')} variant="standard"
             error={errors.email}
             helperText={errors.email?.message} />
-          <TextField {...login('password')} label="Password" variant="standard"
+          <TextField {...login('password')} label={t('Password')} variant="standard"
             error={errors.password}
             helperText={errors.password?.message} />
           <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} >
-            <Button type='submit' variant="contained" sx={{ backgroundColor: '#DB4444' }}>{isSubmitting ? <CircularProgress /> : 'Log In'}</Button>
-            <Link component={RouterLink} to={'/forgetPass'} color='#DB4444'>Forget Password?</Link>
+            <Button type='submit' variant="contained" sx={{ backgroundColor: '#DB4444' }}>{isSubmitting ? <CircularProgress /> : t('Log In') }</Button>
+            <Link component={RouterLink} to={'/forgetPass'} color='#DB4444'>{t('Forget Password')}?</Link>
           </Box>
 
         </Box>

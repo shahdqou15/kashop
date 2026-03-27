@@ -112,7 +112,25 @@ i18n
                     "Write To US":"Write To US",
                     "Fill out our form and we will contact you within 24 hours.":"Fill out our form and we will contact you within 24 hours.",
                     "Emails: customer@exclusive.com":"Emails: customer@exclusive.com",
-                    "Emails: support@exclusive.com":"Emails: support@exclusive.com"
+                    "Emails: support@exclusive.com":"Emails: support@exclusive.com",
+                    "Free":"Free",
+                    "Log in to KASHOP":"Log in to KASHOP",
+                    "Enter your details below":"Enter your details below",
+                    "Enter Your Email":"Enter Your Email",
+                    "Password":"Password",
+                    "Log In":"Log In",
+                    "Forget Password":"Forget Password",
+                    "Create an account":"Create an account",
+                    "User Name":"User Name",
+                    "Full Name":"Full Name",
+                    "User Email":"User Email",
+                    "phone Number":"phone Number",
+                    "Create Account":"Create Account",
+                    "Already have account":"Already have account",
+                    "Send Code":"Send Code",
+                    "Verify code":"Verify code",
+                    "NewPassword":"NewPassword",
+                    "Confirm":"Confirm"
                 }
             },
             ar: {
@@ -217,7 +235,25 @@ i18n
                     "Write To US":"اكتب لنا",
                     "Fill out our form and we will contact you within 24 hours.":"املأ نموذجنا وسنتواصل معك خلال 24 ساعة.",
                     "Emails: customer@exclusive.com":"البريد الإلكتروني: customer@exclusive.com",
-                    "Emails: support@exclusive.com":"البريد الإلكتروني: support@exclusive.com"
+                    "Emails: support@exclusive.com":"البريد الإلكتروني: support@exclusive.com",
+                    "Free":"مجانا",
+                    "Log in to KASHOP":"تسجيل الدخول الى KASHOP",
+                    "Enter your details below":"أدخل بياناتك أدناه",
+                    "Enter Your Email":"أدخل بريدك الالكتروني",
+                    "Password":"كلمة المرور",
+                    "Log In":"تسجيل الدخول",
+                    "Forget Password":"نسيت كلمة المرور",
+                    "Create an account":"انشاء حساب",
+                    "User Name":"اسم المستخدم",
+                    "Full Name":"الاسم الكامل",
+                    "User Email":"بريد المستخدم",
+                    "phone Number":"رقم الهاتف",
+                    "Create Account":"انشاء حساب",
+                    "Already have account":"لديك حساب بالفعل",
+                    "Send Code":"أرسل الرمز",
+                    "Verify code":"تحقق من الرمز",
+                    "NewPassword":"كلمة المرور الجديدة",
+                    "Confirm":"تأكيد"
                     
                 }
             }

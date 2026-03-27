@@ -168,8 +168,8 @@ export default function Home() {
       </Box>
 
       <hr></hr>
-
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', width: '100%', paddingY: 8, bgcolor: '#000' }}>
+     
+      <Box mt={8} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', width: '100%', paddingY: 8, bgcolor: '#000' }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', color: '#fff', gap: '32px' }}>
           <Typography fontSize={{ xs: 12, md: 15 }} color='#47B486'>{t('Categories')}</Typography>
           <Typography fontSize={{ xs: '25px', md: '45px' }}>Enhance Your<br></br> Music Experience</Typography>
@@ -185,7 +185,7 @@ export default function Home() {
         }} ></Box>
       </Box>
 
-      <Box py={7}>
+      <Box pt={7}>
         <Grid container spacing={5}>
           <Grid item size={{ xs: 12, sm: 6, md: 4, lg: 4 }}>
             <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingY: '10px', transition: 'all 0.5s',
@@ -244,10 +244,6 @@ export default function Home() {
       </Box>
 
     </>
-
-
-
-
 
   )
 }

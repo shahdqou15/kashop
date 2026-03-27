@@ -44,19 +44,19 @@ export default function Cart() {
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>
                                 {t('Product')}
                             </TableCell>
-                            <TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>
                                 {t('Price')}
                             </TableCell>
-                            <TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>
                                 {t('Quantity')}
                             </TableCell>
-                            <TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>
                                 {t('Subtotal')}
                             </TableCell>
-                            <TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>
                                 {t('Action')}
                             </TableCell>
                         </TableRow>
@@ -96,28 +96,28 @@ export default function Cart() {
             <Box p={2}>
                 <Link component={RouterLink} to={'/'} underline='none'><Button variant="outlined" color='primary'>{t('Return to shop')}</Button></Link>
             </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }} p={2}>
-                {/* <Box display={'flex'} gap={2}>
+            <Box sx={{ display: 'flex',flexDirection:{xs:'column',md:'row'}, justifyContent: 'space-between', alignItems: 'flex-start' }} gap={3} pt={4}>
+                <Box display={'flex'} gap={2}>
                     <TextField id="outlined-basic" label="Coupon Code" variant="outlined" />
-                    <Button variant="outlined" color='primary'>{t('Apply Coupon')}</Button>
-                </Box> */}
-                <Box  p={3} width={'100%'} display={'flex'} flexDirection={'column'} gap={3}>
+                    <Button variant="contained" color='primary'>{t('Apply Coupon')}</Button>
+                </Box>
+                <Box  p={3} width={{xs:'100%',md:'50%'}} display={'flex'} flexDirection={'column'} gap={3} border={1} borderColor={'divider'}>
                     <Typography fontWeight={'Bold'} fontSize={'25px'}>{t('Cart Total')}</Typography>
                     <Table>
                         <TableRow>
-                            <TableCell>{t('Subtotal')}:</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>{t('Subtotal')}:</TableCell>
                             <TableCell>${data.cartTotal}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>{t('Shipping')}:</TableCell>
-                            <TableCell>Free</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>{t('Shipping')}:</TableCell>
+                            <TableCell>{t('Free')}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell>{t('total')}</TableCell>
+                            <TableCell sx={{ fontWeight: 'bold' }}>{t('total')}</TableCell>
                             <TableCell>${data.cartTotal}</TableCell>
                         </TableRow>
                     </Table>
-                    <Link component={RouterLink} to={'/checkout'} underline='none'><Button variant="contained" color='primary'>{t('Procees to checkout')}</Button></Link>
+                    <Link component={RouterLink} to={'/checkout'} underline='none' alignSelf={'center'}><Button variant="contained" color='primary'>{t('Procees to checkout')}</Button></Link>
                 </Box>
 
             </Box>

@@ -1,21 +1,27 @@
 import React, { useState } from 'react'
 import useCart from '../../hooks/useCart';
-import { Button, CircularProgress, Box, Link, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from '@mui/material';
+import { Button, CircularProgress, Box, Link, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, TextField, Breadcrumbs } from '@mui/material';
 import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom';
 import useCheckout from '../../hooks/useCheckout';
 import { useTranslation } from 'react-i18next';
-
+import PayImage from '../../assets/images/PayMethod.png'
 
 export default function Checkout() {
     const { data, isLoading, isError, error } = useCart();
     const { mutate, isPinding } = useCheckout();
     const [paymentMethod, setpaymentMethod] = useState('Cash');
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     if (isLoading) return <CircularProgress />
     if (isError) return <Box color={'red'}>{error.message}</Box>
     return (
-        <Box className="cart" p={5}>
+        <Box className="cart" p={5} sx={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+            <Breadcrumbs aria-label="breadcrumb" sx={{ paddingBottom: '35px' }}>
+                <Link underline="hover" color="inherit" href="/cart">
+                    {t('Cart')}
+                </Link>
+                <Typography sx={{ color: 'text.primary' }}>{t('Checkout')}</Typography>
+            </Breadcrumbs>
             <TableContainer>
                 <Table>
                     <TableHead >
@@ -56,7 +62,7 @@ export default function Checkout() {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Box p={5} width={'100%'} display={'flex'} flexDirection={'column'} gap={3}>
+            <Box p={5} width={'100%'} display={'flex'} flexDirection={'column'} gap={3} border={1} borderColor={'divider'}>
                 <Typography fontWeight={'Bold'} fontSize={'25px'}>{t('Cart Total')}</Typography>
                 <Table>
                     <TableRow>
@@ -83,12 +89,20 @@ export default function Checkout() {
                         onChange={(e) => setpaymentMethod(e.target.value)}
                     >
                         <FormControlLabel value="Cash" control={<Radio />} label="Cash" />
-                        <FormControlLabel value="Visa" control={<Radio />} label="Visa" />
+                        <Box display={'flex'} flexDirection={{xs:'column',md:'row'}} gap={5}>
+                            <FormControlLabel value="Visa" control={<Radio />} label="Visa" />
+                            <Box component={'img'} src={PayImage} sx={{ width: '235px', height: 'auto', objectFit: 'contain' }}></Box>
+                        </Box>
+
                     </RadioGroup>
                 </FormControl>
 
             </Box>
-            <Button variant="contained" color='primary' onClick={() => mutate(paymentMethod)} disabled={isPinding}>{t('Pay Now')}</Button>
+            <Box display={'flex'} gap={2}>
+                <TextField id="outlined-basic" label="Coupon Code" variant="outlined" />
+                <Button variant="contained" color='primary'>{t('Apply Coupon')}</Button>
+            </Box>
+            <Button variant="contained" sx={{ alignSelf: 'flex-start' }} color='primary' onClick={() => mutate(paymentMethod)} disabled={isPinding}>{t('Pay Now')}</Button>
         </Box>
     )
 }

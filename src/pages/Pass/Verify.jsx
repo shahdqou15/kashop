@@ -4,12 +4,13 @@ import { MuiOtpInput } from 'mui-one-time-password-input'
 import { useForm } from 'react-hook-form'
 import axiosInstance from '../../api/axiosInstance';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function Verify() {
 
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
-    
+    const { t } = useTranslation();
     const verifyForm = async (valuse) => {
         try {
             const email = localStorage.getItem("resetEmail")
@@ -28,18 +29,18 @@ export default function Verify() {
 
     return (
         <Box onSubmit={handleSubmit(verifyForm)} component={'form'} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '25px', padding: '20px', width: '100%' }}>
-            <Typography variant='h3' fontWeight={'Bold'}>Verify code</Typography>
+            <Typography variant='h3' fontWeight={'Bold'}>{t('Verify code')}</Typography>
             <TextField
-                label="Verify code"
+                label={t('Verify code')}
                 {...register('code')} />
             <TextField
                 id="outlined-password-input"
-                label="NewPassword"
+                label={t('NewPassword')}
                 type="password"
                 autoComplete="current-password"
                 {...register('newPassword')}
             />
-            <Button type='submit' variant="contained" color="primary" sx={{ paddingX: '100px' }}>Verify</Button>
+            <Button type='submit' variant="contained" color="primary" sx={{ paddingX: '100px' }}>{t('Confirm')}</Button>
         </Box>
     )
 }
