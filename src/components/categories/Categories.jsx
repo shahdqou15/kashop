@@ -15,7 +15,7 @@ export default function Categories() {
 
   return (
     <Box display={'flex'} flexDirection={'column'} gap={'20px'} textAlign={'center'}>{data.data.map((category) =>
-    <CategoriesCard category={category}/> )}
+    <CategoriesCard category={category} key={category.id}/> )}
   <Link to={'/categories'}>{t('Show More')}</Link>
 </Box>
   )
