@@ -119,19 +119,19 @@ export default function Navbar() {
 
 
 
-          <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: '10px' }}>
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: {xs:'1px',sm:'15px'} }}>
             <Button onClick={changeLanguage}>{i18n.language === "ar" ? "EN" : "AR"}</Button>
             <IconButton onClick={toggleTheme}><DarkModeIcon sx={{ fill: mode === 'light' ? 'black' : '#ffea00' }} /></IconButton>
             {token ? (
-              <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: '24px', alignItems: 'center', justifyContent: 'center' }}>
+              <Box sx={{ display:'flex', gap: '10px', alignItems: 'center', justifyContent: 'center' }}>
 
-                <IconButton size="large">
+                <IconButton size="small">
                   <Badge badgeContent={cartCount} color="primary">
                     <Link component={RouterLink} to={'/cart'} display={'flex'} ><AddShoppingCartIcon sx={{ fill: mode === 'light' ? 'black' : 'white' }} /></Link>
                   </Badge>
 
                 </IconButton>
-                <IconButton size="large">
+                <IconButton size="small">
                   <AccountCircleIcon sx={{ fill: mode === 'light' ? 'black' : 'white' }} id="basic-button"
                     aria-controls={open ? 'basic-menu' : undefined}
                     aria-haspopup="true"
@@ -154,16 +154,16 @@ export default function Navbar() {
                   </Menu>
                 </IconButton>
               </Box>) :
-              <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '24px', alignItems: 'center' }}>
+              <Box sx={{ display:'flex', gap: '5px', alignItems: 'center' }}>
                 <Link component={RouterLink} to={'/register'} sx={{ color: mode === 'light' ? 'black' : 'white' }} underline='none'>{t('Sign up')}</Link>
                 <Link component={RouterLink} to={'/login'} sx={{ color: mode === 'light' ? 'black' : 'white' }} underline='none'>{t('Login')}</Link>
               </Box>
             }
             <IconButton
-              size="large"
+              size="small"
               edge="start"
               aria-label="menu"
-              sx={{ mr: 2, color: mode === 'light' ? 'black' : 'white' }}
+              sx={{color: mode === 'light' ? 'black' : 'white' }}
               onClick={toggleDrawer(true)}
             ><MenuIcon />
 

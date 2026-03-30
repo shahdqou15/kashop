@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import useProductDetails from '../../hooks/useProductDetails';
-import { CircularProgress, Box, Typography, Rating, Button, Card, IconButton, TextField, Breadcrumbs, CardContent, CardMedia, BottomNavigation, BottomNavigationAction, Fab, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Grid } from '@mui/material';
+import { CircularProgress, Box, Typography, Rating, Button, Card, IconButton, TextField, CardContent, CardMedia, BottomNavigation, BottomNavigationAction, Fab, Dialog, DialogTitle, DialogContent, DialogActions, Grid } from '@mui/material';
 import useAddToCart from '../../hooks/useAddToCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddIcon from '@mui/icons-material/Add';
@@ -14,36 +14,25 @@ import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
 export default function ProductDetails() {
   const { id } = useParams();
-  const { data, isLoading} = useProductDetails(id);
-  const { mutate: reviews ,error,isError} = useProductReviews(id);
-  const { mutate, isPending } = useAddToCart();
+  const { data, isLoading, isError: isProductError, error: productError } = useProductDetails(id);
+  const { mutate: AddReviews, error: reviewError, isError: isReviewError } = useProductReviews(id);
+  const { mutate: AddtoCart, isPending } = useAddToCart();
   const { t } = useTranslation();
   const [count, setCount] = useState(1);
-  const [value, setValue] = React.useState(0);
-  const [rate, setrate] = React.useState(null);
+  const [value, setValue] = useState(0);
+  const [rate, setrate] = useState(null);
   const [comment, setComment] = useState("");
-  const [open, setOpen] = React.useState(false);
-
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const formJson = Object.fromEntries(formData.entries());
-    const email = formJson.email;
-    console.log(email);
-    handleClose();
-  };
-
   if (isLoading) return <CircularProgress />
-  if (isError) return <Box color={'red'}>{error.message}</Box>
+  if (isProductError) return <Box color={'red'}>{productError.message}</Box>
   const product = data.response;
   console.log(product);
 
@@ -77,7 +66,7 @@ export default function ProductDetails() {
                 <BottomNavigation
                   showLabels
                   value={value}
-                  onChange={(event, newValue) => {
+                  onChange={(_,newValue) => {
                     setValue(newValue);
                   }}
                 >
@@ -100,7 +89,7 @@ export default function ProductDetails() {
                     <RemoveIcon />
                   </IconButton>
                 </Box>
-                <Button disabled={isPending} variant="contained" color="primary" onClick={() => mutate({
+                <Button disabled={isPending} variant="contained" color="primary" onClick={() => AddtoCart({
                   ProductId: product.id,
                   Count: count
                 })}>{t('Add to Cart')}</Button>
@@ -135,21 +124,21 @@ export default function ProductDetails() {
             <Typography color='primary'>{t('Reviews')}</Typography>
           </Box>
 
-
           <React.Fragment>
             <Button variant="contained" color='primary' onClick={handleClickOpen}>{t('Add Reviews')}</Button>
             <Dialog open={open} onClose={handleClose}>
               <DialogTitle>{t('Add Your Review')}</DialogTitle>
-              {(isError) && <Typography color='red'>{error.response?.data?.message}</Typography>}
+              {(isReviewError) && <Typography fontSize={'15px'} color='red'>{reviewError.response.data.message}</Typography>}
               <DialogContent>
                 <Rating
                   name="simple-controlled"
                   value={rate}
-                  onChange={(event, newValue) => {
+                  required
+                  onChange={(_,newValue) => {
                     setrate(newValue);
                   }}
                 />
-                <Box component={'form'} onSubmit={handleSubmit} id="subscription-form">
+                <Box>
                   <TextField
                     autoFocus
                     required
@@ -159,18 +148,22 @@ export default function ProductDetails() {
                     fullWidth
                     variant="standard"
                     value={comment}
-                    onChange={(e)=>setComment(e.target.value)
-                    
+                    onChange={(e) => setComment(e.target.value)
                     }
                   />
                 </Box>
               </DialogContent>
               <DialogActions>
                 <Button onClick={handleClose}>{t('Cancel')}</Button>
-                <Button type="submit" form="subscription-form" disabled={isPending} onClick={() => reviews({
+                <Button disabled={isPending} onClick={() => AddReviews({
                   Rating: rate,
                   Comment: comment
-                })}>
+                },
+                  {
+                    onSuccess: () => {
+                      setOpen(false);
+                    }
+                  })}>
                   {t('Add')}
                 </Button>
               </DialogActions>

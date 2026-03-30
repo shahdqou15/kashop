@@ -32,9 +32,7 @@ export default function Login() {
     } catch (error) {
       setServerErrors(error.response.data.errors);
     }
-
   }
-
   return (
     <Box component={'section'} display={'flex'} justifyContent={'space-around'} alignItems={'center'}>
       <Box columnGap={3} component={'img'} src={phoneImage} alt={'phoneImage'} sx={{ width: { sm: '300px', md: '480px' }, height: 'auto', objectFit: 'contain', display: { xs: 'none', sm: 'block' } }}></Box>
@@ -60,9 +58,7 @@ export default function Login() {
             <Button type='submit' variant="contained" sx={{ backgroundColor: '#DB4444' }}>{isSubmitting ? <CircularProgress /> : t('Log In') }</Button>
             <Link component={RouterLink} to={'/forgetPass'} color='#DB4444'>{t('Forget Password')}?</Link>
           </Box>
-
         </Box>
-
       </Box>
     </Box>
   )

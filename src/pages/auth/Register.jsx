@@ -22,11 +22,14 @@ export default function Register() {
     try {
       const response = await axios.post(`https://knowledgeshop.runasp.net/api/auth/Account/Register`, values);
       console.log("response:", response);
+      if (response.status === 200) {
+        alert('Signup successful! Please check your email and confirm your account to continue.')
+      }
     } catch (error) {
       setServerErrors(error.response.data.errors);
     }
-
   }
+
 
   return (
     <Box component={'section'} display={'flex'} justifyContent={'space-around'} alignItems={'center'}>
