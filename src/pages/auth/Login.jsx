@@ -30,7 +30,8 @@ export default function Login() {
       }
       console.log("response:", response);
     } catch (error) {
-      setServerErrors(error.response.data.errors);
+      console.log(error.response)
+      setServerErrors(error.response.data.message);
     }
   }
   return (
@@ -44,7 +45,7 @@ export default function Login() {
 
         {serverErrors?.length > 0 && (
           <Box mt={2} color={'red'}>
-          {serverErrors.map((error) => <Typography>Error: {error}</Typography>)}
+          {<Typography>Error: {serverErrors}</Typography>}
         </Box>)}
 
         <Box component={'form'} onSubmit={handleSubmit(loginForm)} display={'flex'} flexDirection={'column'} gap={3} py={2} >

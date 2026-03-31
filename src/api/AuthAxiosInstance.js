@@ -1,7 +1,6 @@
 import axios from "axios";
 import i18n from "../i18next";
 import useAuthStore from "../store/useAuthStore";
-
 const AuthAxiosInstance = axios.create({
     baseURL: 'https://knowledgeshop.runasp.net/api',
     withCredentials:true
@@ -12,11 +11,11 @@ AuthAxiosInstance.interceptors.request.use ( (config)=>{
     config.headers['Authorization'] = `Bearer ${token}`;
     return config
 });
-
 AuthAxiosInstance.interceptors.response.use ( (response)=>response,async(error)=>{
+    const {token} = useAuthStore.getState();
     const originalRequest = error.config;
     console.log(originalRequest);
-    if(error.response?.status === 401 && !originalRequest._retry){
+    if(error.response?.status === 401 && !originalRequest._retry && token){
         originalRequest._retry = true;
         try{
             const refreshResponse = await axios.post('https://knowledgeshop.runasp.net/api/auth/Account/RefreshToken',{},{
@@ -29,9 +28,7 @@ AuthAxiosInstance.interceptors.response.use ( (response)=>response,async(error)=
         }catch(error){
             console.log("error!!");
             return Promise.reject(error);
-        }
-    }
+        }}
     return Promise.reject(error);
 });
-
 export default AuthAxiosInstance;

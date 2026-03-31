@@ -23,7 +23,8 @@ export default function ForgetPass() {
                 navigate('/verify')
             }
         } catch (error) {
-            setServerErrors(error.response.data.errors);
+            console.log(error.response);
+            setServerErrors(error.response.data.message);
         }
 
     }
@@ -32,8 +33,8 @@ export default function ForgetPass() {
         <Box component={'form'} onSubmit={handleSubmit(forgetForm)} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '25px', padding: '20px', width: '100%' }}>
             <Typography variant='h3' fontWeight={'Bold'}>{t('Forget Password')}</Typography>
             {serverErrors?.length > 0 && (
-                <Box mt={2} color={'red'}>
-                    {serverErrors.map((error) => <Typography>Error: {error}</Typography>)}
+                <Box color={'red'}>
+                    { <Typography>Error: {serverErrors}</Typography>}
                 </Box>)}
             <TextField {...register('email')} id="outlined-basic" label={t('User Email')} variant="outlined"
                 error={errors.email}

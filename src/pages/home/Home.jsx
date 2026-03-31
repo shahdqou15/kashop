@@ -89,7 +89,7 @@ export default function Home() {
           overflowX: "auto",
           gap: 2,
           p: 2
-        }}>{data.response.data.map((product) =>
+        }}>{data?.response?.data?.map((product) =>
           <Box
             key={product.id}
             sx={{
@@ -146,7 +146,7 @@ export default function Home() {
             gap: 2,
             py: 5
           }}>
-          {categories.data.map(category =>
+          {categories?.data?.map(category =>
             <Card sx={{
               padding: '20px', cursor: "pointer",
               flexShrink: 0,

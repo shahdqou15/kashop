@@ -3,7 +3,7 @@ import axiosInstance from '../api/axiosInstance'
 import { useQuery } from '@tanstack/react-query'
 import i18n from '../i18next'
 
-export default function useProducts(params={}) {
+export default function useProducts(params) {
     
 const getProducts = async()=>{
     const response = await axiosInstance.get(`/Products`,{params})

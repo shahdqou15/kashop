@@ -1,4 +1,4 @@
-import { alpha, Box, Breadcrumbs, Button, Card, CardContent, CircularProgress, FormControl, Grid, InputBase, InputLabel, Link, MenuItem, Select, styled, TextField, Typography } from '@mui/material'
+import { Box, Breadcrumbs, Button, Card, CardContent, CircularProgress, FormControl, Grid, InputBase, InputLabel, Link, MenuItem, Select, styled, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import ProductCard from '../../components/products/ProductCard';
@@ -7,8 +7,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import useCategories from '../../hooks/useCategories';
 import { useNavigate } from 'react-router-dom';
 import useThemeStore from '../../store/useThemeStore';
-import CategoriesCard from '../../components/categories/CategoriesCard';
-
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -67,8 +65,10 @@ export default function Shop() {
 
   const { data, isError, error, isLoading } = useProducts(filters);
   console.log(data);
+
   const { data: categories } = useCategories(100);
-  console.log(categories)
+  console.log(categories);
+
   const navigate = useNavigate();
   const mode = useThemeStore((state) => state.mode);
 
@@ -101,35 +101,31 @@ export default function Shop() {
           </Card>
         )}
       </Box>
-      <Box sx={{
-        display: { xs: 'flex', md: 'none' },
-        gap: 2,
-        py: 2
-      }}>
+      <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 2,  py: 2}}>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px', width: '50%' }}>
-          <TextField label={t('MaxPrice')} type='number' value={tempFilters.maxPrice} variant="outlined" size="small" onChange={(e) =>
-            setTempFilters(param => ({
-              ...param,
+          <TextField label={t('MaxPrice')} type='number' value={tempFilters.maxPrice} variant="outlined" size="small"
+           onChange={(e) =>
+            setTempFilters(prev => ({
+              ...prev,
               maxPrice: e.target.value
             }))
           } />
-          <TextField label={t('MinPrice')} type='number' value={tempFilters.minPrice} variant="outlined" size="small" onChange={(e) =>
-            setTempFilters(param => ({
-              ...param,
+          <TextField label={t('MinPrice')} type='number' value={tempFilters.minPrice} variant="outlined" size="small"
+           onChange={(e) =>
+            setTempFilters(prev => ({
+              ...prev,
               minPrice: e.target.value
             }))
           } />
         </Box>
         <Box display={'flex'} flexDirection={'column'} gap={'6px'} width={'50%'}>
           <FormControl>
-            <InputLabel id="demo-simple-select-label">{t('Sort By')}</InputLabel>
+            <InputLabel>{t('Sort By')}</InputLabel>
             <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
               value={filters.sortBy}
               label={t('Sort By')}
-              onChange={(e) => setFilters(param => ({
-                ...param
+              onChange={(e) => setFilters(prev => ({
+                ...prev
                 , sortBy: e.target.value
               }))
 
@@ -142,14 +138,12 @@ export default function Shop() {
             </Select>
           </FormControl>
           <FormControl>
-            <InputLabel id="demo-simple-select-label">{t('according to')}</InputLabel>
+            <InputLabel>{t('according to')}</InputLabel>
             <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
               value={filters.ascending}
               label={t('according to')}
-              onChange={(e) => setFilters(param => ({
-                ...param
+              onChange={(e) => setFilters(prev => ({
+                ...prev
                 , ascending: e.target.value
               }))}
               size="small"
@@ -162,8 +156,8 @@ export default function Shop() {
         <Button
           variant="contained"
           onClick={() =>
-            setFilters(param => ({
-              ...param,
+            setFilters(prev => ({
+              ...prev,
               ...tempFilters
             }))}>{t('Apply')}</Button>
       </Box>
@@ -187,8 +181,8 @@ export default function Shop() {
               inputProps={{ 'aria-label': 'search' }}
               value={filters.search}
               onChange={(e) =>
-                setFilters(param => ({
-                  ...param,
+                setFilters(prev => ({
+                  ...prev,
                   search: e.target.value
                 }))
               }
@@ -197,15 +191,13 @@ export default function Shop() {
         </Box>
 
 
-        <Box sx={{ display: 'flex', gap: '20px', justifyContent: 'space-between' }}>
+        <Box sx={{ display: 'flex', gap: '10px', justifyContent: 'space-between' }}>
           <Box>
             <Grid container spacing={5} >
               {data.response.data.map((product) =>
                 <Grid item
                   xs={12}
-                  sm={data.response.data.length === 1 ? 12 : 6}
-                  md={data.response.data.length === 1 ? 6 : 6}
-                  lg={data.response.data.length === 1 ? 6 : 6}
+                  sm={6}
                   key={product.id}>
                   <ProductCard product={product} /></Grid>
               )}
@@ -216,29 +208,27 @@ export default function Shop() {
               <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <Typography fontSize={'24px'} fontWeight={'Bold'}>{t('Filters')}</Typography>
                 <Box sx={{ display: 'flex', gap: '5px' }}>
-                  <TextField label={t('MaxPrice')} type='number' value={tempFilters.maxPrice} variant="outlined" width={'30px'} onChange={(e) =>
-                    setTempFilters(param => ({
-                      ...param,
+                  <TextField label={t('MaxPrice')} type='number' value={tempFilters.maxPrice} variant="outlined" onChange={(e) =>
+                    setTempFilters(prev => ({
+                      ...prev,
                       maxPrice: e.target.value
                     }))
                   } />
-                  <TextField label={t('MinPrice')} type='number' value={tempFilters.minPrice} variant="outlined" width={'30px'} onChange={(e) =>
-                    setTempFilters(param => ({
-                      ...param,
+                  <TextField label={t('MinPrice')} type='number' value={tempFilters.minPrice} variant="outlined" onChange={(e) =>
+                    setTempFilters(prev => ({
+                      ...prev,
                       minPrice: e.target.value
                     }))
                   } />
                 </Box>
 
                 <FormControl >
-                  <InputLabel id="demo-simple-select-label">{t('Sort By')}</InputLabel>
+                  <InputLabel>{t('Sort By')}</InputLabel>
                   <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
                     value={filters.sortBy}
                     label={t('Sort By')}
-                    onChange={(e) => setFilters(param => ({
-                      ...param
+                    onChange={(e) => setFilters(prev => ({
+                      ...prev
                       , sortBy: e.target.value
                     }))
 
@@ -252,14 +242,12 @@ export default function Shop() {
 
 
                 <FormControl>
-                  <InputLabel id="demo-simple-select-label">{t('according to')}</InputLabel>
+                  <InputLabel>{t('according to')}</InputLabel>
                   <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
                     value={filters.ascending}
                     label={t('according to')}
-                    onChange={(e) => setFilters(param => ({
-                      ...param
+                    onChange={(e) => setFilters(prev => ({
+                      ...prev
                       , ascending: e.target.value
                     }))}
                   >
@@ -271,8 +259,8 @@ export default function Shop() {
                 <Button
                   variant="contained"
                   onClick={() =>
-                    setFilters(param => ({
-                      ...param,
+                    setFilters(prev => ({
+                      ...prev,
                       ...tempFilters
                     }))}>{t('Apply')}</Button>
               </CardContent>
