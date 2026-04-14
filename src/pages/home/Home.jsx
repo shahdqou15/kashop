@@ -51,7 +51,6 @@ export default function Home() {
         </Box>
       </Box>
 
-
       <Box className={'products-section'} py={3}>
         <Box p={3}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
